@@ -1,4 +1,4 @@
-import { refs } from '../../../src/index.js'
+import { refs } from '../../../src/index.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Add default value
@@ -31,6 +31,7 @@ export function renderCards(images) {
       }).join('');
       refs.galleryImages.insertAdjacentHTML('beforeend', markup);
       refs.loadMoreBtn.classList.remove('is-hidden');
+      Notify.success(`Hooray! We found ${images.totalHits} images.`);
   } else {
         refs.loadMoreBtn.classList.add('is-hidden');
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');

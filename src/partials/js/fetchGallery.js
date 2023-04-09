@@ -1,5 +1,5 @@
-import { KEY_TO_API } from '../../../src/index.js'
-import axios from "axios"
+import { KEY_TO_API } from '../../../src/index.js';
+import axios from "axios";
 
 // Add default value of a current page 'page='
 let currentPage = 1;
@@ -19,6 +19,7 @@ export async function fetchGallery(term) {
   
     const response = await axios(url);
     const images = await response.data;
+    
     // console.log(images);
     // Change page of response
     currentPage += 1;

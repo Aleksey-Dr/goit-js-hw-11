@@ -39,9 +39,11 @@ function searchImages(evt) {
     refs.loadMoreBtn.classList.add('is-hidden');
     // stop reboot page
     evt.preventDefault();
+    // Add clear gallary by submit
+    clearGallery();
     // Constant for a inputed term (for serach images)
     // Add method trim()
-    const termImages = evt.currentTarget.elements.searchQuery.value.trim();;
+    const termImages = evt.currentTarget.elements.searchQuery.value.trim();
     console.log(termImages);
     
     if (valueTermImages !== termImages) {
@@ -57,4 +59,8 @@ function searchImages(evt) {
 
 function onLoadMore() {
   fetchGallery(valueTermImages).then(renderCards);
+}
+
+function clearGallery() {
+  refs.galleryImages.innerHTML = '';
 }
