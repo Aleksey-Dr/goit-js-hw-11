@@ -17,3 +17,16 @@ const refs = {
 // Add CONSTANTS
 // Personal key for Pixabay API
 const KEY_TO_API = '35129314-12d9f6cafbe4df38ad9bc5f6b';
+
+// Add function searchImages
+function searchImages(evt) {
+  // stop reboot page
+  evt.preventDefault();
+  // Constant for a inputed term (for serach images)
+  // Add method trim()
+  const termImages = evt.currentTarget.elements.searchQuery.value.trim();;
+  console.log(termImages);
+
+  fetchGallery(termImages)
+    .catch(error => console.log(error));
+}
