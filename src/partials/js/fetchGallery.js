@@ -1,8 +1,9 @@
-import {KEY_TO_API} from '../../../src/index'
+import { KEY_TO_API } from '../../../src/index'
+import axios from "axios"
 
 // Add asynchronous function
 export async function fetchGallery(term) {
-//   console.log('test');
+  console.log('test');
   // Add URL to Pixabay
   // Parts URL
   const frontURL = 'https://pixabay.com/api/?key=';
@@ -11,8 +12,8 @@ export async function fetchGallery(term) {
   // Complete URL
   const url = frontURL + KEY_TO_API + betweenURL + term + backURL;
   
-  const response = await fetch(url);
-  const images = await response.json();
-//   console.log(images);
+  const response = await axios(url);
+  const images = await response.data;
+  console.log(images);
   return images;
 }
