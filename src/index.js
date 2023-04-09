@@ -16,7 +16,9 @@ const refs = {
 
 // Add CONSTANTS
 // Personal key for Pixabay API
-const KEY_TO_API = '35129314-12d9f6cafbe4df38ad9bc5f6b';
+export const KEY_TO_API = '35129314-12d9f6cafbe4df38ad9bc5f6b';
+
+refs.searchForm.addEventListener('submit', searchImages);
 
 // Add function searchImages
 function searchImages(evt) {
