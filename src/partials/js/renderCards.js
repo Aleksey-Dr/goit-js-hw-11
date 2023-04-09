@@ -29,8 +29,10 @@ export function renderCards(images) {
       </div>
     </div>`
       }).join('');
-    refs.galleryImages.insertAdjacentHTML('beforeend', markup);
+      refs.galleryImages.insertAdjacentHTML('beforeend', markup);
+      refs.loadMoreBtn.classList.remove('is-hidden');
   } else {
-    Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+        refs.loadMoreBtn.classList.add('is-hidden');
+        Notify.failure('Sorry, there are no images matching your search query. Please try again.');
   }
 }

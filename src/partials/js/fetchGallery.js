@@ -15,14 +15,14 @@ export async function fetchGallery(term) {
     const backURL = '&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=';
     // console.log('currentPage before:', currentPage);
     // Complete URL
-    const url = frontURL + KEY_TO_API + betweenURL + term + backURL;
+    const url = frontURL + KEY_TO_API + betweenURL + term + backURL + currentPage;
   
     const response = await axios(url);
     const images = await response.data;
     // console.log(images);
     // Change page of response
     currentPage += 1;
-    console.log(currentPage);
+    // console.log(currentPage);
     return images;
 }
 

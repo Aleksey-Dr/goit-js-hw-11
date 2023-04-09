@@ -1,0 +1,70 @@
+/* Pixabay */
+* {
+  box-sizing: border-box;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.gallery {
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 24px;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  padding: 5px;
+
+  text-align: center;
+  font-size: 10px;
+  line-height: calc(19 / 16);
+  letter-spacing: 0.03em;
+}
+
+.load-more {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 120px;
+  height: 30px;
+
+  background-color: rgb(44, 77, 226);
+  border: none;
+  border-radius: 4px;
+
+  color: rgb(255, 255, 255);
+}
+
+.is-hidden {
+  display: none;
+}

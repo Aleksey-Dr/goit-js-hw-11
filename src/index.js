@@ -1,4 +1,6 @@
-// Import fetchCountries
+// Import styles
+import './css/styles.css';
+// Import fetchGallery
 import { fetchGallery } from './partials/js/fetchGallery.js';
 import { restartPage } from './partials/js/fetchGallery.js';
 import { renderCards } from './partials/js/renderCards.js';
@@ -16,6 +18,9 @@ export const refs = {
 // console.log(refs.galleryImages);
 // console.log(refs.loadMoreBtn);
 
+// Add class to the element loadMoreBtn for hiddening
+refs.loadMoreBtn.classList.add('is-hidden');
+
 // Add CONSTANTS
 // Personal key for Pixabay API
 export const KEY_TO_API = '35129314-12d9f6cafbe4df38ad9bc5f6b';
@@ -23,15 +28,20 @@ export const KEY_TO_API = '35129314-12d9f6cafbe4df38ad9bc5f6b';
 // Add default value
 let valueTermImages = '';
 
+// Add listeners
+// Add listeners by "submit" for form wiht function fetchImages(term) in callback
 refs.searchForm.addEventListener('submit', searchImages);
+// Add listeners by "click" for button "Load more" wiht function onLoadMore() in callback
+refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 // Add function searchImages
 function searchImages(evt) {
-  // stop reboot page
-  evt.preventDefault();
-  // Constant for a inputed term (for serach images)
-  // Add method trim()
-  const termImages = evt.currentTarget.elements.searchQuery.value.trim();;
+    refs.loadMoreBtn.classList.add('is-hidden');
+    // stop reboot page
+    evt.preventDefault();
+    // Constant for a inputed term (for serach images)
+    // Add method trim()
+    const termImages = evt.currentTarget.elements.searchQuery.value.trim();;
     console.log(termImages);
     
     if (valueTermImages !== termImages) {
@@ -43,4 +53,8 @@ function searchImages(evt) {
     fetchGallery(termImages)
         .then(renderCards)
         .catch(error => console.log(error));
+}
+
+function onLoadMore() {
+  fetchGallery(valueTermImages).then(renderCards);
 }
