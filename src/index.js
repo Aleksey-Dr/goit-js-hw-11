@@ -1,3 +1,6 @@
+// Import fetchCountries
+import { fetchGallery } from './partials/js/fetchGallery.js';
+
 // console.log('Hello!');
 
 // Add/find elements from html
