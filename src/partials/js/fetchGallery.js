@@ -1,19 +1,32 @@
 import { KEY_TO_API } from '../../../src/index.js'
 import axios from "axios"
 
+// Add default value of a current page 'page='
+let currentPage = 1;
+
 // Add asynchronous function
 export async function fetchGallery(term) {
-  console.log('test');
-  // Add URL to Pixabay
-  // Parts URL
-  const frontURL = 'https://pixabay.com/api/?key=';
-  const betweenURL = '&q=';
-  const backURL = '&image_type=photo&orientation=horizontal&safesearch=true';
-  // Complete URL
-  const url = frontURL + KEY_TO_API + betweenURL + term + backURL;
+    // console.log('test');
+    // Add URL to Pixabay
+    // Parts URL
+    const frontURL = 'https://pixabay.com/api/?key=';
+    const betweenURL = '&q=';
+    // Add per_page=40 for change default value of quantity items in response
+    const backURL = '&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=';
+    // console.log('currentPage before:', currentPage);
+    // Complete URL
+    const url = frontURL + KEY_TO_API + betweenURL + term + backURL;
   
-  const response = await axios(url);
-  const images = await response.data;
-  console.log(images);
-  return images;
+    const response = await axios(url);
+    const images = await response.data;
+    // console.log(images);
+    // Change page of response
+    currentPage += 1;
+    console.log(currentPage);
+    return images;
+}
+
+// Function for rest a page by new search
+export function restartPage() {
+  currentPage = 1;
 }
