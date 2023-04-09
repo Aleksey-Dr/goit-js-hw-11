@@ -1,4 +1,4 @@
-import { KEY_TO_API } from '../../../src/index'
+import { KEY_TO_API } from '../../../src/index.js'
 import axios from "axios"
 
 // Add asynchronous function

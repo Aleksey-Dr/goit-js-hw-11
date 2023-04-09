@@ -1,11 +1,12 @@
 // Import fetchCountries
 import { fetchGallery } from './partials/js/fetchGallery.js';
+import { renderCards } from './partials/js/renderCards.js';
 
 // console.log('Hello!');
 
 // Add/find elements from html
 // Create object with elements
-const refs = {
+export const refs = {
     searchForm: document.querySelector('.search-form'),
     galleryImages: document.querySelector('.gallery'),
     loadMoreBtn: document.querySelector('.load-more'),
@@ -18,6 +19,8 @@ const refs = {
 // Personal key for Pixabay API
 export const KEY_TO_API = '35129314-12d9f6cafbe4df38ad9bc5f6b';
 
+// Add default value
+
 refs.searchForm.addEventListener('submit', searchImages);
 
 // Add function searchImages
@@ -29,6 +32,7 @@ function searchImages(evt) {
   const termImages = evt.currentTarget.elements.searchQuery.value.trim();;
   console.log(termImages);
 
-  fetchGallery(termImages)
-    .catch(error => console.log(error));
+    fetchGallery(termImages)
+        .then(renderCards)
+        .catch(error => console.log(error));
 }
